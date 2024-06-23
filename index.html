@@ -4,7 +4,220 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Luminari, fantasy;
+            font-size: 16px;
+            background-color: #6d1717;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #cbec0f;
+            padding: 10px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #24023b;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: #6d1717;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        a:link, a:visited {
+            background-color: #335b8f;
+            color: white;
+            padding: 14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        a:hover, a:active {
+            background-color: rgb(33, 110, 164);
+        }
+
+        #scrollTopBtn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #cbec0f;
+            color: #24023b;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #scrollTopBtn:hover {
+            background-color: #555;
+        }
+
+        #themeToggleBtn {
+            position: fixed;
+            bottom: 20px;
+            left: 30px;
+            z-index: 99;
+            border: none;
+            outline: none;
+            background-color: #cbec0f;
+            color: #24023b;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        #themeToggleBtn:hover {
+            background-color: #555;
+        }
+
+        #contactForm {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+        }
+
+        #contactForm input, #contactForm textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid #cbec0f;
+            border-radius: 5px;
+        }
+
+        #contactForm input[type="submit"] {
+            background-color: #cbec0f;
+            color: #24023b;
+            cursor: pointer;
+        }
+
+        #contactForm input[type="submit"]:hover {
+            background-color: #555;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.9);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .lightbox img {
+            margin: auto;
+            display: block;
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,30 +231,217 @@
     </header>
 
     <main>
+        <h1 id="welcomeMessage"></h1>
         <section id="about">
+            <div class="slideshow-container">
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <img src="https://img.freepik.com/premium-photo/pixel-art-office-desk-with-computerpixel-art-office-desk-with-computerpixel-pixel-office-wor_912214-15851.jpg?w=740" style="width:35%">
+                    
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <img src="https://via.placeholder.com/740" style="width:35%">
+                    
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <img src="https://via.placeholder.com/740" style="width:35%">
+                    
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+            </div>
+
             <h2>About Me</h2>
-            <p>Hi I'm Ayaan Patel. A certified geek by heart(and by genetics). I go to Ridge High School and am in the 9th grade. I am also a content creator, front stack developer(for now), cross country and track kid, a muslim, and all around your average guy. I also play video games, go to the gym, play airsoft, and much more. You may be thinking I do this because my parents force me to but that's not true even though I do have indian parents. But nope, just the curiosity of a young kid.</p>
+            <p style="border:2px solid DodgerBlue;">Hi I'm Ayaan Patel. A certified geek by heart(and by genetics). I go to Ridge High School and am in the 9th grade. I am also a content creator, front stack developer(for now), cross country and track kid, a muslim, and all around your average guy. I also play video games, go to the gym, play airsoft, and much more. You may be thinking I do this because my parents force me to but that's not true even though I do have indian parents. But nope, just the curiosity of a young kid.</p>
         </section>
 
         <section id="projects">
             <h2>Projects</h2>
-            <div class="project">
+            <label for="projectFilter">Filter by category:</label>
+            <select id="projectFilter" onchange="filterProjects()">
+                <option value="all">All</option>
+                <option value="hackathon">Hackathon</option>
+                <option value="personal">Personal</option>
+            </select>
+            <div class="project" data-category="hackathon">
                 <h3><a href="https://chalenges.us/">Challenge Us</a></h3>
-                <p>It is my first and only hackathon project right now. It's called Challenge Us and it's a challenge generator with the purpose of getting people out of there comfort zone.<a href="https://github.com/Catflix01/Thatgeekkidd.github.io">Github for Challenge Us</a></p>
+                <img src="https://via.placeholder.com/150" onclick="openLightbox(this.src)" style="cursor:pointer;">
+                <p>It is my first and only hackathon project right now. It's called Challenge Us and it's a challenge generator with the purpose of getting people out of their comfort zone.<a href="https://github.com/Catflix01/Thatgeekkidd.github.io">Github for Challenge Us</a></p>
             </div>
+            <!-- Add more projects here with data-category attributes -->
         </section>
 
         <section id="contact">
             <h2>Contact Me</h2>
+            <form id="contactForm" onsubmit="return validateForm()">
+                <input type="text" id="name" name="name" placeholder="Your Name">
+                <input type="email" id="email" name="email" placeholder="Your Email">
+                <textarea id="message" name="message" placeholder="Your Message"></textarea>
+                <input type="submit" value="Submit">
+            </form>
             <p>
-                <br>Email:Ayapat908@gmail.com
-                <br>Phone:908-926-1138(Text before calling)
+                <br>Email: Ayapat908@gmail.com
+                <br>Phone: 908-926-1138 (Text before calling)
             </p>
         </section>
     </main>
 
+    <button onclick="scrollToTop()" id="scrollTopBtn">Top</button>
+    <button onclick="toggleTheme()" id="themeToggleBtn">Toggle Theme</button>
+
     <footer>
-        <p>&copy; Last updated:2024 By:Ayaan Patel and AI</p>
+        <p id="dateTime"></p>
+        <p>&copy; Last updated: 2024 By: Ayaan Patel and AI</p>
     </footer>
+
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <span class="close">&times;</span>
+        <img id="lightboxImg" src="">
+    </div>
+
+    <script>
+        // Dynamic Welcome Message
+        function setWelcomeMessage() {
+            const hour = new Date().getHours();
+            let message = "Welcome to My Portfolio!";
+            if (hour < 12) {
+                message = "Good Morning! Welcome to My Portfolio!";
+            } else if (hour < 18) {
+                message = "Good Afternoon! Welcome to My Portfolio!";
+            } else {
+                message = "Good Evening! Welcome to My Portfolio!";
+            }
+            document.getElementById("welcomeMessage").textContent = message;
+        }
+
+        // Scroll to top button functionality
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            const scrollTopBtn = document.getElementById("scrollTopBtn");
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+
+        // Toggle theme functionality
+        function toggleTheme() {
+            const body = document.body;
+            const isDark = body.style.backgroundColor === 'rgb(109, 23, 23)';
+            if (isDark) {
+                body.style.backgroundColor = 'white';
+                body.style.color = 'black';
+            } else {
+                body.style.backgroundColor = '#6d1717';
+                body.style.color = 'white';
+            }
+        }
+
+        // Project filter functionality
+        function filterProjects() {
+            const filter = document.getElementById("projectFilter").value;
+            const projects = document.querySelectorAll(".project");
+            projects.forEach(project => {
+                if (filter === "all" || project.getAttribute("data-category") === filter) {
+                    project.style.display = "block";
+                } else {
+                    project.style.display = "none";
+                }
+            });
+        }
+
+        // Contact form validation
+        function validateForm() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+            if (!name || !email || !message) {
+                alert("All fields are required!");
+                return false;
+            }
+            return true;
+        }
+
+        // Set welcome message on page load
+        window.onload = function() {
+            setWelcomeMessage();
+            showSlides(slideIndex);
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+        };
+
+        // Slideshow functionality
+        let slideIndex = 1;
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            const slides = document.getElementsByClassName("mySlides");
+            const dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";  
+            dots[slideIndex-1].className += " active";
+        }
+
+        // Lightbox functionality
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').style.display = 'block';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Update date and time
+        function updateDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById("dateTime").textContent = dateTimeString;
+        }
+    </script>
 </body>
 </html>
